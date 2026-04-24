@@ -55,7 +55,7 @@
 ### 1. 系统要求
 - Python 3.10+
 - Linux 或 WSL（Windows 原生不推荐）
-- 长桥 API 密钥（需开通美股期权权限）
+- 长桥 API 密钥（需开通美股期权权限） 关于'longportapp'文档[https://open.longportapp.com/docs]
 
 ### 2. 安装依赖
 ```bash
@@ -80,7 +80,12 @@ cd QQQ
     - `APP_KEY`
     - `APP_SECRET`
     - `ACCESS_TOKEN`
+      
+   <img width="772" height="465" alt="image" src="https://github.com/user-attachments/assets/3775c567-26d1-4f82-b015-6a60eddc0b82" />
+
 3.  确保账户已开通美股期权交易权限
+   <img width="1024" height="502" alt="image" src="https://github.com/user-attachments/assets/be0b9f92-9b3a-4340-b539-0b4f3a0db727" />
+
 
 ### 2. 创建 `.env` 文件
 在项目目录创建 `.env` 文件，填入你自己的密钥：
@@ -199,6 +204,9 @@ pip install longbridge
 1.  期权合约代码格式是否正确（`.US` 后缀 + 整数行权价）
 2.  到期日是否用美东时间生成
 3.  账户是否有期权交易权限
+    当你拥有正确的报价权限时，情况可能如下：
+   <img width="718" height="473" alt="image" src="https://github.com/user-attachments/assets/b37b65f6-8b20-41f0-a95b-3d69ce7963d9" />
+
 
 ---
 
