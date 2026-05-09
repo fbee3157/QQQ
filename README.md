@@ -118,21 +118,27 @@ print(f"QQQ: ${float(quotes[0].last_done):.2f}")
 
 ### 方式一：直接启动
 ```bash
-# 终端 1：启动交易引擎
+# Linux / macOS
 PYTHONUNBUFFERED=1 python live_trader.py
-
-# 终端 2：启动 Web 仪表盘
 PYTHONUNBUFFERED=1 python trader_web.py
+
+# Windows PowerShell
+$Env:PYTHONUNBUFFERED = '1'; python live_trader.py
+$Env:PYTHONUNBUFFERED = '1'; python trader_web.py
+
+# Windows CMD
+set PYTHONUNBUFFERED=1&& python live_trader.py
+set PYTHONUNBUFFERED=1&& python trader_web.py
 ```
 
 ### 方式二：后台启动
 ```bash
-# 后台启动交易引擎
+# Linux / macOS
 nohup PYTHONUNBUFFERED=1 python live_trader.py > trader.log 2>&1 &
-
-# 后台启动 Web 仪表盘
 nohup PYTHONUNBUFFERED=1 python trader_web.py > web.log 2>&1 &
 ```
+
+> Windows 下建议直接运行 `python live_trader.py`，如果不需要强制刷新输出缓冲。
 
 ### 方式三：watchdog 守护（推荐）
 ```bash

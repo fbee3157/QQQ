@@ -7,7 +7,12 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from longbridge.openapi import Config, QuoteContext, TradeContext
+try:
+    from longbridge.openapi import Config, QuoteContext, TradeContext
+except ModuleNotFoundError as exc:
+    raise ModuleNotFoundError(
+        "Missing required package 'longbridge'. Please install it with 'pip install -r requirements.txt' or 'pip install longbridge'."
+    ) from exc
 
 from config import BASE_DIR, RECORDS_DIR, STATE_FILE, ensure_paths, get_longbridge_config, get_symbol
 from indicators import average, momentum_rate, price_range, sma
