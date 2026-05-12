@@ -2,8 +2,6 @@ import os
 import logging
 from pathlib import Path
 
-from longbridge.openapi import Config
-
 BASE_DIR = Path(__file__).resolve().parent
 STATE_FILE = BASE_DIR / "state.json"
 RECORDS_DIR = BASE_DIR / "records"
@@ -31,8 +29,15 @@ def load_dotenv(dotenv_path: Path = None) -> None:
             logger.debug("已加载密钥: %s=***", key)
 
 
-def get_longbridge_config() -> Config:
+def get_longbridge_config():
     """获取长桥配置"""
+    try:
+        from longbridge.openapi import Config
+    except ModuleNotFoundError as exc:
+        raise ModuleNotFoundError(
+            "Missing required package 'longbridge'. Please install it with 'pip install -r requirements.txt' or 'pip install longbridge'."
+        ) from exc
+
     load_dotenv()
     try:
         return Config.from_apikey_env()

@@ -361,9 +361,9 @@ TEMPLATE = """
                   </td>
                   <td>
                     {% if record.get('entry_price') %}
-                      \${{ "%.2f" % record.entry_price }}
+                      \\${{ "%.2f" % record.entry_price }}
                     {% elif record.get('exit_price') %}
-                      \${{ "%.2f" % record.exit_price }}
+                      \\${{ "%.2f" % record.exit_price }}
                     {% else %}
                       -
                     {% endif %}
